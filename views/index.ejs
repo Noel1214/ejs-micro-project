@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+    <link rel="stylesheet" href="/stylesheets/home.css" />
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+  </head>
+  <body>
+    <h1 id="main-title">URL SHORTENER</h1>
+    <div class="form-wrapper-div">
+      <form method="POST" action="/geturl" class="form">
+        <div class="title">Shorten</div>
+
+        <label>
+          <input
+            required=""
+            placeholder=""
+            name="url"
+            type="text"
+            class="input"
+          />
+          <span>Url</span>
+        </label>
+
+        <button class="submit">Generate</button>
+      </form>
+    </div>
+    <div id="shortend-urls-div">
+      <% urls.forEach((item, index) => { %>
+      <div class="box1">
+        <p><%= index + 1%></p>
+        <a href="<%= item.url %>" target="_blank"><%= currentPath + item.short_code %></a>
+      </div>
+      <% }) %>
+    </div>
+
+    <script src="/javascripts/home.js"></script>
+  </body>
+</html>
