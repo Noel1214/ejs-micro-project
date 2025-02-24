@@ -1,5 +1,5 @@
 import dotenv from "dotenv";
-import express from "express";
+import express, { Request, Response } from "express";
 import cors from "cors";
 import path from "path";
 import pool from "./db.js";
@@ -17,11 +17,10 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 console.log(process.cwd);
 
-// app.use(express.static("D:\Coding\ejs-micro-project\public"));
-app.use(express.static(path.join(__dirname, "public")));
+// app.use(express.static(path.join(__dirname, "public")));
 app.set("view engine", "ejs");
 
-app.get("/", async (req, res) => {
+app.get("/", async (req: Request, res: Response) => {
   try {
     const connection = await pool.getConnection();
     const [data] = await connection.query("select * from shortend_urls");
