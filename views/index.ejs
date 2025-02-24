@@ -32,7 +32,9 @@
       <% urls.forEach((item, index) => { %>
       <div class="box1">
         <p><%= index + 1%></p>
-        <a href="<%= item.url %>" target="_blank"><%= currentPath + item.short_code %></a>
+        <a href="<%= item.url %>" target="_blank"
+          ><%= currentPath + item.short_code %></a
+        >
       </div>
       <% }) %>
     </div>
